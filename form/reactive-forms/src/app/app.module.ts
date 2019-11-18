@@ -15,7 +15,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
   imports: [
     BrowserModule,
     // other imports ...
-    ReactiveFormsModule
+    ReactiveFormsModule //使用响应式表单模型第一步先在该模块中导入响应式表单模块。
   ],
   providers: [],
   bootstrap: [AppComponent]
