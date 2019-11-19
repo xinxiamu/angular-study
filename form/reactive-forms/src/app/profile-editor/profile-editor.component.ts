@@ -15,6 +15,7 @@ import { FormArray } from '@angular/forms';
 export class ProfileEditorComponent {
   //profileForm是个嵌套表单,同时接纳 FormControl 和 FormGroup 作为子控件。
   //来自内嵌控件组的状态和值的变更将会冒泡到它的父控件组，以维护整体模型的一致性。
+  //FormBuilder 服务有三个方法：control()、group() 和 array()。这些方法都是工厂方法，用于在组件类中分别生成 FormControl、FormGroup 和 FormArray。
   profileForm = this.fb.group({//在视图中，profileForm是FormGroup的名称
     firstName: ['', Validators.required],  //校验器要求必填。key是表单的名字，视图中的formControlName属性名称。必填字段必须都有值，表单状态才为可用状态，否则为不可用状态。
     lastName: [''],
@@ -33,6 +34,8 @@ export class ProfileEditorComponent {
     return this.profileForm.get('aliases') as FormArray; //表单组
   }
 
+  //表单构建器
+  //当需要与多个表单打交道时，手动创建多个表单控件实例会非常繁琐。FormBuilder 服务提供了一些便捷方法来生成表单控件。FormBuilder 在幕后也使用同样的方式来创建和返回这些实例，只是用起来更简单。
   constructor(private fb: FormBuilder) { } //首先要引入表单组对象创建的对象。
 
 
