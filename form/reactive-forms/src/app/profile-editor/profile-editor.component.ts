@@ -36,13 +36,17 @@ export class ProfileEditorComponent {
   constructor(private fb: FormBuilder) { } //首先要引入表单组对象创建的对象。
 
 
+  //更新模型值
+  //两种方式：1.使用 setValue() 方法来为单个控件设置新值。 setValue() 方法会严格遵循表单组的结构，并整体性替换控件的值。
+  //2.使用 patchValue() 方法可以用对象中所定义的任何属性为表单模型进行替换。
+  //下面只更新firstNamehe
   updateProfile() {
     this.profileForm.patchValue({
-      firstName: 'Nancy',
-      address: {
-        street: '123 Drew Street'
-      }
-    });
+          firstName: 'Nancy',
+          address: {
+            street: '123 Drew Street'
+          }
+        });
   }
 
   addAlias() {
