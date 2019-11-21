@@ -1,13 +1,16 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm"><!--定义表单模板变量heroForm-->
       <div class="form-group">
         <label for="name">Name</label>
+        <!--input标签使用双向绑定必须定义name属性-->
+        <!--定义临时的模板引用变量#name-->
         <input type="text" class="form-control" id="name"
                required
                [(ngModel)]="model.name" name="name"
                #name="ngModel">
+        <!--利用ngModel判断输入框状态，显示不同的样式-->
         <div [hidden]="name.valid || name.pristine"
              class="alert alert-danger">
           Name is required
@@ -33,7 +36,9 @@
         </div>
       </div>
 
+      <!--表单提交，表单状态不可用时候禁用按钮-->
       <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <!--调用 newHero() 方法后调用表单的 reset() 方法-->
       <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
       <i>with</i> reset
 
