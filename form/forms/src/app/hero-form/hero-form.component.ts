@@ -12,7 +12,7 @@ export class HeroFormComponent {
   powers = ['Really Smart', 'Super Flexible',
             'Super Hot', 'Weather Changer'];
 
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet'); //创建一个英雄实例
 
   submitted = false;
 
