@@ -19,8 +19,8 @@ export class ConfigService {
   getConfig() {
     return this.http.get<Config>(this.configUrl)
       .pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
+        retry(3), // retry a failed request up to 3 times，最多重试三次请求。
+        catchError(this.handleError) // then handle the error  异常处理
       );
   }
 

@@ -24,8 +24,8 @@ export class ConfigComponent {
   showConfig() {
     this.configService.getConfig()
       .subscribe(
-        (data: Config) => this.config = { ...data }, // success path
-        error => this.error = error // error path
+        (data: Config) => this.config = { ...data }, // success path  请求成功处理
+        error => this.error = error // error path  //失败处理
       );
   }
 
