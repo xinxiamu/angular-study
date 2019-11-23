@@ -16,6 +16,11 @@ const httpOptions = {
   })
 };
 
+//修改请求头
+//比如在发起下一个请求之前，如果旧的令牌已经过期了，你可能还要修改认证头。
+// httpOptions.headers =
+//   httpOptions.headers.set('Authorization', 'my-new-auth-token');
+
 @Injectable()
 export class HeroesService {
   heroesUrl = 'api/heroes';  // URL to web api
@@ -36,10 +41,14 @@ export class HeroesService {
   }
 
   /* GET heroes whose name contains search term */
+  //如果有搜索词，这段代码就会构造一个包含进行过 URL 编码的搜索词的选项对象。如果这个搜索词是“foo”，这个 GET 请求的 URL 就会是 api/heroes/?name=foo。
+  //
+  // HttpParams 是不可变的，所以你也要使用 set() 方法来修改这些选项。
   searchHeroes(term: string): Observable<Hero[]> {
     term = term.trim();
 
     // Add safe, URL encoded search parameter if there is a search term
+    //构建搜索参数
     const options = term ?
      { params: new HttpParams().set('name', term) } : {};
 

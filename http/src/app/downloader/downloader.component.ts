@@ -15,7 +15,7 @@ export class DownloaderComponent {
   }
 
   download() {
-    this.downloaderService.getTextFile('assets/textfile.txt')
+    this.downloaderService.getTextFile('assets/textfile.txt') //下载网络文本不行。
       .subscribe(results => this.contents = results);
   }
 }

@@ -35,6 +35,8 @@ export class HeroesComponent implements OnInit {
       .subscribe(hero => this.heroes.push(hero));
   }
 
+  //该组件不会等待删除操作的结果，所以它的 subscribe （订阅）中没有回调函数。不过就算你不关心结果，也仍然要订阅它。调用 subscribe() 方法会执行这个可观察对象，这时才会真的发起 DELETE 请求。
+  //注意，所有的http的请求，都必须要订阅subscribe，才会真正的开始发起请求。订阅几次，就会重新创建请求对象发送几次请求。
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroesService.deleteHero(hero.id).subscribe();
