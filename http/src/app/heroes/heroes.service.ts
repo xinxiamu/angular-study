@@ -45,6 +45,7 @@ export class HeroesService {
   //
   // HttpParams 是不可变的，所以你也要使用 set() 方法来修改这些选项。
   searchHeroes(term: string): Observable<Hero[]> {
+    debugger;
     term = term.trim();
 
     // Add safe, URL encoded search parameter if there is a search term

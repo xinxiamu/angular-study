@@ -26,6 +26,9 @@ export class CachingInterceptor implements HttpInterceptor {
   constructor(private cache: RequestCache) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
+    debugger;
+    console.log(">>>>>CachingInterceptor");
+
     // continue if not cachable.
     if (!isCachable(req)) { return next.handle(req); }
 

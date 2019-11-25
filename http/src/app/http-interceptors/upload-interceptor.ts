@@ -11,6 +11,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class UploadInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    debugger;
+    console.log(">>>>>UploadInterceptor");
+
     if (req.url.indexOf('/upload/file') === -1) {
       return next.handle(req);
     }
